@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard Pro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>🌤️ Weather Dashboard</h1>
+      <p>Live weather, forecast & city comparison</p>
+    </div>
+    <button id="themeBtn" class="theme-btn" onclick="toggleTheme()">🌙 Dark Mode</button>
+  </header>
+
+  <main class="container">
+    <section class="search-panel">
+      <div class="search-box">
+        <input id="cityInput" type="text" placeholder="Search city e.g. Agra, Delhi, London">
+        <button onclick="searchWeather()">Search</button>
+      </div>
+      <button class="location-btn" onclick="getCurrentLocation()">📍 Use My Location</button>
+    </section>
+
+    <p id="message"></p>
+
+    <section id="dashboard" class="hidden">
+      <div class="location-row">
+        <div>
+          <h2 id="cityName">--</h2>
+          <p id="localTime">--</p>
+        </div>
+        <button class="refresh-btn" onclick="refreshWeather()">🔄 Refresh</button>
+      </div>
+
+      <div class="current-grid">
+        <article class="card main-weather">
+          <div>
+            <p class="label">CURRENT WEATHER</p>
+            <div class="big-temp"><span id="temperature">--</span>°C</div>
+            <h3 id="condition">--</h3>
+            <p>Feels like <b id="feelsLike">--</b>°C</p>
+          </div>
+          <div class="big-icon" id="weatherIcon">☀️</div>
+        </article>
+
+        <article class="card">
+          <p class="label">HUMIDITY</p>
+          <div class="stat">💧 <span id="humidity">--</span>%</div>
+          <p>Relative humidity</p>
+        </article>
+
+        <article class="card">
+          <p class="label">WIND</p>
+          <div class="stat">💨 <span id="wind">--</span></div>
+          <p>km/h</p>
+        </article>
+
+        <article class="card">
+          <p class="label">PRECIPITATION</p>
+          <div class="stat">🌧️ <span id="rain">--</span></div>
+          <p>mm</p>
+        </article>
+
+        <article class="card">
+          <p class="label">SUNRISE</p>
+          <div class="stat">🌅 <span id="sunrise">--</span></div>
+          <p>Local time</p>
+        </article>
+
+        <article class="card">
+          <p class="label">SUNSET</p>
+          <div class="stat">🌇 <span id="sunset">--</span></div>
+          <p>Local time</p>
+        </article>
+      </div>
+
+      <section class="section">
+        <div class="section-title">
+          <h2>📅 7-Day Forecast</h2>
+          <p>Daily temperature outlook</p>
+        </div>
+        <div id="forecast" class="forecast"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">
+          <h2>⭐ Favorite Cities</h2>
+          <button onclick="addFavorite()" class="small-btn">+ Add Current City</button>
+        </div>
+        <div id="favorites" class="favorites"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">
+          <h2>🕘 Search History</h2>
+          <button onclick="clearHistory()" class="small-btn">Clear</button>
+        </div>
+        <div id="history" class="history"></div>
+      </section>
+    </section>
+
+    <section id="welcome" class="welcome">
+      <div class="welcome-icon">🌍</div>
+      <h2>Search a city to get started</h2>
+      <p>Get current conditions, a 7-day forecast, sunrise/sunset and more.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Weather Dashboard Pro • Built by Ankit using HTML, CSS, JavaScript & Open-Meteo API</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
